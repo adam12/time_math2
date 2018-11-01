@@ -230,7 +230,7 @@ module TimeMath
     private
 
     def valid_time_range?(range)
-      range.is_a?(Range) && Util.timey?(range.begin) && Util.timey?(range.end)
+      range.respond_to?(:begin) && range.respond_to?(:end) && Util.timey?(range.begin) && Util.timey?(range.end)
     end
 
     def process_range(range)
